@@ -17,7 +17,7 @@ RUN export KERNELVER=`uname -r  | cut -d '-' -f 1`  && \
   yes ""|make oldconfig && \
   make modules_prepare && \
   make SUBDIRS=fs/squashfs modules && \
-  cp /linux-4.9.6/fs/squashfs/squashfs.ko /tmp && \
-  rm -rf /linux-4.9.6
+  cp /linux-$KERNELVER/fs/squashfs/squashfs.ko /tmp && \
+  rm -rf /linux-$KERNELVER
 
 CMD ["insmod","/tmp/squashfs.ko" ]
